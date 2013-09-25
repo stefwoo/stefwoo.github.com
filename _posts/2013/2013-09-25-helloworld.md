@@ -15,13 +15,14 @@ Test markdown!
 
 python
 
-    <code>
-    import urllib2
-    print urllib2.urlopen('http://baidu.com').read().encode('gb2312')
-    </code>
+<code>
+import urllib2
+print urllib2.urlopen('http://baidu.com').read().encode('gb2312')
+</code>
 
 * 第一点
 * 第二点
 
 
 
+```import urllib2````
