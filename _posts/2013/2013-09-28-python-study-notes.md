@@ -16,3 +16,10 @@ json.loads()参数中的object_hook作为一个参数用来处理输入的数据
 urllib2.urlopen()的参数timeout需设置，避免未知故障引起的超时，从而造成程序假死。
 
 据朋友[small.fz](http://bluemask.net)说urllib2库的口碑不太好，推荐我用[Requests库](http://cn.python-requests.org/en/latest/),目前正在看文档。
+
+## *args, **kwargs
+
+* *args表示任何多个无名参数，它是一个tuple； 
+* *kwargs表示关键字参数，它是一个 dict。
+
+同时使用args和kwargs时，必须args参数列要在kwargs前，否则报语法错误。
