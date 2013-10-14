@@ -23,3 +23,35 @@ urllib2.urlopen()的参数timeout需设置，避免未知故障引起的超时�
 * *kwargs表示关键字参数，它是一个 dict。
 
 同时使用args和kwargs时，必须args参数列要在kwargs前，否则报语法错误。
+
+## @property 
+
+@property装饰可以将python定义的函数“当做”属性访问，从而提供更加友好访问方式。
+
+## eval()
+
+eval语句用来计算存储在字符串中的有效Python表达式。下面是一个简单的例子
+
+## exec
+
+exec语句用来执行储存在字符串或文件中的Python语句
+
+## enumerate(）函数
+
+enumerate(）函数相当于给一个序列增加一个序号，很好用
+    >>> seasons = ['Spring', 'Summer', 'Fall', 'Winter']
+    >>> list(enumerate(seasons))
+    [(0, 'Spring'), (1, 'Summer'), (2, 'Fall'), (3, 'Winter')]
+    >>> list(enumerate(seasons, start=1))
+    [(1, 'Spring'), (2, 'Summer'), (3, 'Fall'), (4, 'Winter')]
+
+## dict.popitem()
+
+字典的popitem()返回一个元组，然后删除字典中的item，如字典为空则报错。
+和列表的pop类似。
+列表的pop和append方法同时使用，很方便。
+dict.get(key[, default])
+Return the value for key if key is in the dictionary, else default. If default is not given, it defaults to None, so that this method never raises a KeyError.
+如果存在key对应的值则返回值，如果不存在则返回设置的值。方便啊！
+
+
