@@ -54,4 +54,11 @@ dict.get(key[, default])
 Return the value for key if key is in the dictionary, else default. If default is not given, it defaults to None, so that this method never raises a KeyError.
 如果存在key对应的值则返回值，如果不存在则返回设置的值。方便啊！
 
+## 单句if...else
+
+    xxx if Bool else yyy
+    如果bool值为真则为xxx，如果为假则为yy
+
+##在python学习中发现有很多很方便的技巧，有的时候看代码看多了会头痛，可以去看youtube视频可以学到很多东西。
+
 
