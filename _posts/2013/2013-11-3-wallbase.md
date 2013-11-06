@@ -33,7 +33,7 @@ tags:
 
 太大了，每张看起来很麻烦，就写了个程序下载了一些打包，都是SKETCHY类别的，由于挂在vps上下载的，所以找了个可以用ftp上传的网盘，vps和网盘之间速度真快，6M，比我家的adsl快多了，adsl的上传真是不给力啊。网盘到本地我试着下载了一下，用迅雷基本上可以满速下载。后续的壁纸还在下载中。
 
-[下载下来的壁纸打包（SKETCHY等级）(第一部分)](http://www.pipipan.com/file/33851061)
-[下载下来的壁纸打包（SKETCHY等级）(第二部分)](http://www.pipipan.com/file/34216844)
+[下载下来的壁纸打包（SKETCHY等级）(第一部分)](http://www.t00y.com/file/34462282)
+[下载下来的壁纸打包（SKETCHY等级）(第二部分)](http://www.t00y.com/file/34477685)
 
 
