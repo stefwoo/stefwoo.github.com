@@ -6,7 +6,6 @@ categories:
 tags:
 - python
 ---
-# PIL在Win7下不能show的解决办法
 
 在Win7下使用python的PIL模块的时候，使用show（）方式的时候会出现如下问题：
 
