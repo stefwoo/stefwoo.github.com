@@ -9,33 +9,33 @@ tags:
 ## 推荐一个壁纸网站：wallbase
 
 看到这个网站的原因是之前在安装linux的时候用xfce4觉得不好看，想找好看的window X，在G+上看到的有个有好看的elementary OS，点进去一看，ui做的很好，它用的壁纸很好看，发现是来自一个叫wallbase的网站，然后我到那个网址一看，真是非常的不错。
-随便贴几张上来看看。
+随便贴几张上来看看。点击可以看大图。
 
-<a id="single_1" href="http://wpimg-wpimg.stor.sinaapp.com/original/63ed4f52fb19ba50523ae268e6a09066.jpg" title="stefwoo.info">
+<a class="fancybox" rel="gallery1" id="single_1" href="http://wpimg-wpimg.stor.sinaapp.com/original/63ed4f52fb19ba50523ae268e6a09066.jpg" title="stefwoo.info">
     <img src="http://wpimg-wpimg.stor.sinaapp.com/200/63ed4f52fb19ba50523ae268e6a09066.jpg" alt="" />
 </a>
 
-<a id="single_1" href="http://wpimg-wpimg.stor.sinaapp.com/original/9d4aea88ed1a4232a985fc559144fa84.jpg" title="stefwoo.info">
+<a class="fancybox" rel="gallery1" id="single_1" href="http://wpimg-wpimg.stor.sinaapp.com/original/9d4aea88ed1a4232a985fc559144fa84.jpg" title="stefwoo.info">
     <img src="http://wpimg-wpimg.stor.sinaapp.com/200/9d4aea88ed1a4232a985fc559144fa84.jpg" alt="" />
 </a>
 
-<a id="single_1" href="http://wpimg-wpimg.stor.sinaapp.com/original/ffba508db8a34783f6015bfce2de4a71.jpg" title="stefwoo.info">
+<a class="fancybox" rel="gallery1" id="single_1" href="http://wpimg-wpimg.stor.sinaapp.com/original/ffba508db8a34783f6015bfce2de4a71.jpg" title="stefwoo.info">
     <img src="http://wpimg-wpimg.stor.sinaapp.com/200/ffba508db8a34783f6015bfce2de4a71.jpg" alt="" />
 </a>
 
-<a id="single_1" href="http://wpimg-wpimg.stor.sinaapp.com/original/f721bd6dc208545ff9d8de26bbf7fbac.jpg" title="stefwoo.info">
+<a class="fancybox" rel="gallery1" id="single_1" href="http://wpimg-wpimg.stor.sinaapp.com/original/f721bd6dc208545ff9d8de26bbf7fbac.jpg" title="stefwoo.info">
     <img src="http://wpimg-wpimg.stor.sinaapp.com/200/f721bd6dc208545ff9d8de26bbf7fbac.jpg" alt="" />
 </a>
 
-<a id="single_1" href="http://wpimg-wpimg.stor.sinaapp.com/original/d49ae7ca96d8d93674c769b22b6a0d17.jpg" title="stefwoo.info">
+<a class="fancybox" rel="gallery1" id="single_1" href="http://wpimg-wpimg.stor.sinaapp.com/original/d49ae7ca96d8d93674c769b22b6a0d17.jpg" title="stefwoo.info">
     <img src="http://wpimg-wpimg.stor.sinaapp.com/200/d49ae7ca96d8d93674c769b22b6a0d17.jpg" alt="" />
 </a>
 
-<a id="single_1" href="http://wpimg-wpimg.stor.sinaapp.com/original/77c4c5b8bfa62c53b10d72cbce9ad7a8.jpg" title="stefwoo.info">
+<a class="fancybox" rel="gallery1" id="single_1" href="http://wpimg-wpimg.stor.sinaapp.com/original/77c4c5b8bfa62c53b10d72cbce9ad7a8.jpg" title="stefwoo.info">
     <img src="http://wpimg-wpimg.stor.sinaapp.com/200/77c4c5b8bfa62c53b10d72cbce9ad7a8.jpg" alt="" />
 </a>
 
-<a id="single_1" href="http://wpimg-wpimg.stor.sinaapp.com/original/52e5823cb35c6666e1bbf70d987128a0.jpg" title="stefwoo.info">
+<a class="fancybox" rel="gallery1" id="single_1" href="http://wpimg-wpimg.stor.sinaapp.com/original/52e5823cb35c6666e1bbf70d987128a0.jpg" title="stefwoo.info">
     <img src="http://wpimg-wpimg.stor.sinaapp.com/200/52e5823cb35c6666e1bbf70d987128a0.jpg" alt="" />
 </a>
 
