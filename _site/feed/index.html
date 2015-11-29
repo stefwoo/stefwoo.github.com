@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <rss version="2.0"
+        xmlns:content="http://purl.org/rss/1.0/modules/content/"
+        xmlns:atom="http://www.w3.org/2005/Atom"
+  >
+  <channel>
+    <title>Stef</title>
+    <link href="http://stefwoo.github.io/feed/" rel="self" />
+    <link href="http://geeklu.com" />
+    <lastBuildDate>2015-11-29T16:44:10+08:00</lastBuildDate>
+    <webMaster>stef.woo@gmail.com</webMaster>
+    
+    <item>
+      <title>验证码(CAPTCHA)识别</title>
+      <link href="http://stefwoo.github.io/2013/11/captcha/"/>
+      <pubDate>2013-11-11T00:00:00+08:00</pubDate>
+      <author>Stef</author>
+      <guid>http://stefwoo.github.io/2013/11/captcha</guid>
+      <content:encoded><![CDATA[<p>验证码识别的流程如下：</p>
+
+<p>去噪>>>二值化>>>分割>>>建立模板>>>识别</p>
+
+<ul>
+<li>去噪主要是将图像中的多余的信息去除，使图像上除了背景之外就是我们所需的信息</li>
+<li>二值化是指将图像分成对立的两个部分，信息为1，而背景为0，方便作判断</li>
+<li>分割是将每个字符分割开，这样可以对每个字符进行识别</li>
+<li>建立模板是指对需要识别的字符集（如数字0-9，字母A-Z）进行模板的建立，作为识别的标准</li>
+<li>最后一步就是将切割出来的字符和模板进行一一对比，设定阈值以后就可以识别字符了</li>
+</ul>
+
+
+<p>其中分割可以根据不同的图形采取不同的方法，如果字符之间没有粘连，可以采用连通算法，联通算法顾名思义就是指每个字符内的像素应该是连通的。</p>
+
+<h4>连通算法的伪代码如下：</h4>
+
+<pre><code>for each binary image:
+  for each pixel in the binary image:
+    if the pixel is on:
+      if any pixel we have seen before is next to it:
+        add to the same set
+      else:
+        add to a new set
+</code></pre>
+
+<p>在图形上来说，我们可以如下图一样考虑：</p>
+
+<p><img src="http://wpimg-wpimg.stor.sinaapp.com/original/6c8097411587c8d4aa0ac04a57ec4890.png" title="连通算法" alt="连通算法" /></p>
+
+<p>对一张图形的像素进行扫描，如果发现像素为真，则增加到一个集合内，对集合内的点进行历遍，考虑到每个像素周围有八个相邻点，对其进行一一判断，如果为真且不在之前的集合内则增加进集合，通过这样的历遍可以找出一个连通域。完成后继续对图形进行扫描，如发现新的真值，则增加到另一个集合。通过这样对图形的历遍可以找出图形中的各个连通域，然后可以设置空白图形将单个像素集合放进去就能得到单独的字符了。这样每个字符就从图纸中抠出来了。</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>PIL在Win7下不能show的解决办法</title>
+      <link href="http://stefwoo.github.io/2013/11/PIL-study/"/>
+      <pubDate>2013-11-09T00:00:00+08:00</pubDate>
+      <author>Stef</author>
+      <guid>http://stefwoo.github.io/2013/11/PIL-study</guid>
+      <content:encoded><![CDATA[<p>在Win7下使用python的PIL模块的时候，使用show（）方式的时候会出现如下问题：</p>
+
+<p><img src="http://wpimg-wpimg.stor.sinaapp.com/original/f202d8757a1062de27911fd9f12afaec.png" title="无法显示图片" alt="无法显示" /></p>
+
+<p>原因为PIL的show()方法生成一个bitmap的临时文件，然后调用图片浏览器观看，而Win7的图片浏览器不接受命令行形式的图片，所以不能显示。</p>
+
+<p>解决办法为构建一个函数将图片先显式的保存为一个文件，然后调用webbrowser浏览这个图片就可以了，使用起来和原本的show()方法也差不多。但是需要注意的是，im需要先convert一下，免得其他格式的图片不能保存成为jpg。</p>
+
+<pre><code>def show_img(im):
+    im.save("tmp.jpg")
+    import webbrowser
+    webbrowser.open("tmp.jpg")
+</code></pre>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>wallbase.cc介绍</title>
+      <link href="http://stefwoo.github.io/2013/11/wallbase/"/>
+      <pubDate>2013-11-03T00:00:00+08:00</pubDate>
+      <author>Stef</author>
+      <guid>http://stefwoo.github.io/2013/11/wallbase</guid>
+      <content:encoded><![CDATA[<h2>推荐一个壁纸网站：wallbase</h2>
+
+<p>看到这个网站的原因是之前在安装linux的时候用xfce4觉得不好看，想找好看的window X，在G+上看到的有个有好看的elementary OS，点进去一看，ui做的很好，它用的壁纸很好看，发现是来自一个叫wallbase的网站，然后我到那个网址一看，真是非常的不错。
+随便贴几张上来看看。点击可以看大图。</p>
+
+<p><a class="fancybox" rel="gallery1" href="http://wpimg-wpimg.stor.sinaapp.com/original/63ed4f52fb19ba50523ae268e6a09066.jpg" title="stefwoo.info">
+    <img src="http://wpimg-wpimg.stor.sinaapp.com/200/63ed4f52fb19ba50523ae268e6a09066.jpg" alt="" />
+</a></p>
+
+<p><a class="fancybox" rel="gallery1" href="http://wpimg-wpimg.stor.sinaapp.com/original/9d4aea88ed1a4232a985fc559144fa84.jpg" title="stefwoo.info">
+    <img src="http://wpimg-wpimg.stor.sinaapp.com/200/9d4aea88ed1a4232a985fc559144fa84.jpg" alt="" />
+</a></p>
+
+<p><a class="fancybox" rel="gallery1" href="http://wpimg-wpimg.stor.sinaapp.com/original/ffba508db8a34783f6015bfce2de4a71.jpg" title="stefwoo.info">
+    <img src="http://wpimg-wpimg.stor.sinaapp.com/200/ffba508db8a34783f6015bfce2de4a71.jpg" alt="" />
+</a></p>
+
+<p><a class="fancybox" rel="gallery1" href="http://wpimg-wpimg.stor.sinaapp.com/original/f721bd6dc208545ff9d8de26bbf7fbac.jpg" title="stefwoo.info">
+    <img src="http://wpimg-wpimg.stor.sinaapp.com/200/f721bd6dc208545ff9d8de26bbf7fbac.jpg" alt="" />
+</a></p>
+
+<p><a class="fancybox" rel="gallery1" href="http://wpimg-wpimg.stor.sinaapp.com/original/d49ae7ca96d8d93674c769b22b6a0d17.jpg" title="stefwoo.info">
+    <img src="http://wpimg-wpimg.stor.sinaapp.com/200/d49ae7ca96d8d93674c769b22b6a0d17.jpg" alt="" />
+</a></p>
+
+<p><a class="fancybox" rel="gallery1" href="http://wpimg-wpimg.stor.sinaapp.com/original/77c4c5b8bfa62c53b10d72cbce9ad7a8.jpg" title="stefwoo.info">
+    <img src="http://wpimg-wpimg.stor.sinaapp.com/200/77c4c5b8bfa62c53b10d72cbce9ad7a8.jpg" alt="" />
+</a></p>
+
+<p><a class="fancybox" rel="gallery1" href="http://wpimg-wpimg.stor.sinaapp.com/original/52e5823cb35c6666e1bbf70d987128a0.jpg" title="stefwoo.info">
+    <img src="http://wpimg-wpimg.stor.sinaapp.com/200/52e5823cb35c6666e1bbf70d987128a0.jpg" alt="" />
+</a></p>
+
+<p>可以去<a href="http://wpimg.sinaapp.com">我的图库</a>看其他一些的图片。</p>
+
+<p><a href="http://www.wallbase.cc">wallbse</a>里面的壁纸分为3个等级：</p>
+
+<ul>
+<li>SFW:常规的壁纸</li>
+<li>SKETCHY：美女壁纸，比较sexy的，但是不算成人内容的</li>
+<li>NSFW:不适宜工作场所（"Not Safe (or Suitable) For Work;"），即包含图片或成人影像，可能会冒犯到雇主或同事。</li>
+</ul>
+
+
+<p>这里先选贴几张上来看看。</p>
+
+<p>太大了，每张看起来很麻烦，就写了个程序下载了一些打包，都是SKETCHY类别的，由于挂在vps上下载的，所以找了个可以用ftp上传的网盘，vps和网盘之间速度真快，6M，比我家的adsl快多了，adsl的上传真是不给力啊。网盘到本地我试着下载了一下，用迅雷基本上可以满速下载。后续的壁纸还在下载中。</p>
+
+<p>每个压缩包都可以单独解压，不需要都下载的。</p>
+
+<ul>
+<li><a href="http://www.t00y.com/file/34462282">下载下来的壁纸打包（SKETCHY等级）(第一部分)</a></li>
+<li><a href="http://www.t00y.com/file/34477685">下载下来的壁纸打包（SKETCHY等级）(第二部分)</a></li>
+<li><a href="http://www.t00y.com/file/34724407">下载下来的壁纸打包（SKETCHY等级）(第三部分)</a></li>
+<li><a href="http://www.t00y.com/file/34959404">下载下来的壁纸打包（SKETCHY等级）(第四部分</a></li>
+<li><a href="http://www.t00y.com/file/35114360">下载下来的壁纸打包（NSFW等级）(第一部分)</a></li>
+<li><a href="http://www.t00y.com/file/35225624">下载下来的壁纸打包（NSFW等级）(第二部分)</a></li>
+<li><a href="http://www.t00y.com/file/35338901">下载下来的壁纸打包（NSFW等级）(第三部分)</a></li>
+<li><a href="http://www.t00y.com/file/35454356">下载下来的壁纸打包（NSFW等级）(第四部分)</a></li>
+<li><a href="http://www.t00y.com/file/35697330">下载下来的壁纸打包（NSFW等级）(第五部分)</a></li>
+<li><a href="http://www.t00y.com/file/35807911">下载下来的壁纸打包（NSFW等级）(第六部分)</a></li>
+<li><a href="http://www.t00y.com/file/36048733">下载下来的壁纸打包（NSFW等级）(第七部分)</a></li>
+<li><a href="http://www.t00y.com/file/36048734">下载下来的壁纸打包（NSFW等级）(第八部分)</a></li>
+<li><a href="http://www.t00y.com/file/36370219">下载下来的壁纸打包（NSFW等级）(第九部分)</a></li>
+<li><a href="http://www.t00y.com/file/36370218">下载下来的壁纸打包（NSFW等级）(第十部分)</a></li>
+<li><a href="http://www.t00y.com/file/37162481">下载下来的壁纸打包（NSFW等级）(第十一部分)</a></li>
+<li><a href="http://www.t00y.com/file/37194927">下载下来的壁纸打包（NSFW等级）(第十二部分)</a></li>
+<li><a href="http://www.t00y.com/file/37648867">下载下来的壁纸打包（NSFW等级）(第十三部分)</a></li>
+</ul>
+
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>用到的linux命令</title>
+      <link href="http://stefwoo.github.io/2013/11/linux-command/"/>
+      <pubDate>2013-11-03T00:00:00+08:00</pubDate>
+      <author>Stef</author>
+      <guid>http://stefwoo.github.io/2013/11/linux-command</guid>
+      <content:encoded><![CDATA[<h2>常用压缩和解压缩命令</h2>
+
+<pre><code>壓　縮：tar -jcv -f filename.tar.bz2 要被壓縮的檔案或目錄名稱
+查　詢：tar -jtv -f filename.tar.bz2
+解壓縮：tar -jxv -f filename.tar.bz2 -C 欲解壓縮的目錄
+</code></pre>
+
+<h2>查看磁盘剩余空间和文件夹大小</h2>
+
+<pre><code>df -hl 查看磁盘剩余空间
+du -h 文件夹
+更多功能查看：
+df --help
+du --help
+</code></pre>
+
+<h2>FTP</h2>
+
+<pre><code>登录
+ftp ip
+输入用户名，密码即可
+
+查看FTP 命令
+ftp&gt; ?
+
+上传文件
+Put命令：格式：put local-file [remote-file] 将一个文件上传到ftp
+Mput命令：格式：mput local-files 将本地主机中一批文件传送至远端主机.
+              注意：mput命令只能将当前本地目录下的文件上传到FTP上的当前目录。比如，在 /root/dave下运行的ftp命令，则只有在/root/dave下的文件linux才会上传到服务器上的当前目录下。
+
+ftp&gt; pwd    -- 显示FTP上当前路径
+ftp&gt; ls   -- 显示当前目录下的文件
+ftp&gt; mkdir Dave    -- 创建文件夹Dave
+ftp&gt; cd Dave      -- 进入文件夹Dave
+ftp&gt; lcd     -- 显示当前本地的路径，我们可以将这个路径下的这个文件上传到FTP服务器的相关位置
+
+下载文件
+同样也有2个命令： get 和 mget。 Mget 用户批量下载。
+get [remote-file] [local-file]
+mget [remote-files]
+同样，mget 是将文件下载到本地的当前目录下。
+</code></pre>
+
+<p>ftp> bye  --断开FTP 连接</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>一个virtualenv例子</title>
+      <link href="http://stefwoo.github.io/2013/09/virtualenv-study/"/>
+      <pubDate>2013-09-28T00:00:00+08:00</pubDate>
+      <author>Stef</author>
+      <guid>http://stefwoo.github.io/2013/09/virtualenv-study</guid>
+      <content:encoded><![CDATA[<h1>virtualenv 用来创建隔离的Python环境</h1>
+
+<pre><code>mkdir myproject1
+cd myproject1
+virtualenv env --no-site-packages #创建干净的环境，如果不带此参数则将原安装的所有包安装过来
+source env/bin/active
+(env) pip install django
+(env) pip install mysql-python
+(env) deactive
+</code></pre>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>学习python的一些记录</title>
+      <link href="http://stefwoo.github.io/2013/09/python-study-notes/"/>
+      <pubDate>2013-09-28T00:00:00+08:00</pubDate>
+      <author>Stef</author>
+      <guid>http://stefwoo.github.io/2013/09/python-study-notes</guid>
+      <content:encoded><![CDATA[<h2>json</h2>
+
+<p>json.loads()参数中的object_hook作为一个参数用来处理输入的数据。在输入数据流中, 对于解码获得的每个字典都会调用object_hook, 将这个字典转换成其他类型的对象,object_hook函数返回的是调用程序所需要的对象, 而不是字典。</p>
+
+<h2>urllib2</h2>
+
+<p>urllib2.urlopen()的参数timeout需设置，避免未知故障引起的超时，从而造成程序假死。</p>
+
+<p>据朋友<a href="http://bluemask.net">small.fz</a>说urllib2库的口碑不太好，推荐我用<a href="http://cn.python-requests.org/en/latest/">Requests库</a>,目前正在看文档。</p>
+
+<h2>*args, **kwargs</h2>
+
+<ul>
+<li>*args表示任何多个无名参数，它是一个tuple；</li>
+<li>*kwargs表示关键字参数，它是一个 dict。</li>
+</ul>
+
+
+<p>同时使用args和kwargs时，必须args参数列要在kwargs前，否则报语法错误。</p>
+
+<h2>@property</h2>
+
+<p>@property装饰可以将python定义的函数“当做”属性访问，从而提供更加友好访问方式。</p>
+
+<h2>eval()</h2>
+
+<p>eval语句用来计算存储在字符串中的有效Python表达式。下面是一个简单的例子</p>
+
+<h2>exec</h2>
+
+<p>exec语句用来执行储存在字符串或文件中的Python语句</p>
+
+<h2>enumerate(）函数</h2>
+
+<p>enumerate(）函数相当于给一个序列增加一个序号，很好用
+    >>> seasons = ['Spring', 'Summer', 'Fall', 'Winter']
+    >>> list(enumerate(seasons))
+    [(0, 'Spring'), (1, 'Summer'), (2, 'Fall'), (3, 'Winter')]
+    >>> list(enumerate(seasons, start=1))
+    [(1, 'Spring'), (2, 'Summer'), (3, 'Fall'), (4, 'Winter')]</p>
+
+<h2>dict.popitem()</h2>
+
+<p>字典的popitem()返回一个元组，然后删除字典中的item，如字典为空则报错。
+和列表的pop类似。
+列表的pop和append方法同时使用，很方便。
+dict.get(key[, default])
+Return the value for key if key is in the dictionary, else default. If default is not given, it defaults to None, so that this method never raises a KeyError.
+如果存在key对应的值则返回值，如果不存在则返回设置的值。方便啊！</p>
+
+<h2>单句if...else</h2>
+
+<pre><code>xxx if Bool else yyy
+如果bool值为真则为xxx，如果为假则为yy
+</code></pre>
+
+<h2>在python学习中发现有很多很方便的技巧，有的时候看代码看多了会头痛，可以去看youtube视频可以学到很多东西。</h2>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>hello world</title>
+      <link href="http://stefwoo.github.io/2013/09/helloworld/"/>
+      <pubDate>2013-09-25T00:00:00+08:00</pubDate>
+      <author>Stef</author>
+      <guid>http://stefwoo.github.io/2013/09/helloworld</guid>
+      <content:encoded><![CDATA[<h2>Hello Word!</h2>
+
+<h2>Hello Githup!</h2>
+
+<p>Test markdown!</p>
+
+<p>python</p>
+
+<p><code>
+import urllib2
+print urllib2.urlopen('http://baidu.com').read().encode('gb2312')
+</code></p>
+
+<ul>
+<li>第一点</li>
+<li>第二点</li>
+</ul>
+
+
+<p>```import urllib2````</p>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>
