@@ -3,5 +3,5 @@ permalink: /:year/:month/:title/
 url: http://stefwoo.github.io
 author: Stef
 highlighter: pygments
-jekyll-paginate: 12
-paginate_path: "/page:num/"
+paginate: 12
+# paginate_path: "/page:num/"
