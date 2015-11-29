@@ -2,5 +2,6 @@ markdown: rdiscount
 permalink: /:year/:month/:title/
 url: http://stefwoo.github.io
 author: Stef
-highlighter: rouge
-jekyll-paginate: 24
+highlighter: pygments
+jekyll-paginate: 12
+paginate_path: "/page:num/"
